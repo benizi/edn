@@ -20,6 +20,8 @@ Then, much later, I came across ["Command-line apps with Clojure and GraalVM:
 300x better start-up times"][blog-post], a nice walk-through of compiling JVM
 Clojure to a native binary.  So, I extracted the script from my dotfiles.
 
+(Dotfiles versions are still available in the [dotfiles branch][attic].)
+
 # Usage
 
 ## With Boot
@@ -93,4 +95,5 @@ Distributed under the MIT License[¹][¹] (included in file: [LICENSE](LICENSE))
 [boot]: http://boot-clj.com/
 [graalvm]: https://www.graalvm.org/
 [blog-post]: https://www.astrecipes.net/blog/2018/07/20/cmd-line-apps-with-clojure-and-graalvm/
+[attic]: /benizi/edn/tree/dotfiles
 [¹]: 90% sure this is fine w.r.t. the Eclipse Public License common in Clojure-land.
