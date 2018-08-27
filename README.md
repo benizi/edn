@@ -89,6 +89,7 @@ Distributed under the MIT License[¹][¹] (included in file: [LICENSE](LICENSE))
 ---
 
 [edn]: https://github.com/edn-format/edn
+[lumo]: https://github.com/anmonteiro/lumo
 [boot]: http://boot-clj.com/
 [graalvm]: https://www.graalvm.org/
 [blog-post]: https://www.astrecipes.net/blog/2018/07/20/cmd-line-apps-with-clojure-and-graalvm/
