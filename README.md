@@ -95,5 +95,5 @@ Distributed under the MIT License[¹][¹] (included in file: [LICENSE](LICENSE))
 [boot]: http://boot-clj.com/
 [graalvm]: https://www.graalvm.org/
 [blog-post]: https://www.astrecipes.net/blog/2018/07/20/cmd-line-apps-with-clojure-and-graalvm/
-[attic]: /benizi/edn/tree/dotfiles
+[attic]: https://github.com/benizi/edn/tree/dotfiles
 [¹]: 90% sure this is fine w.r.t. the Eclipse Public License common in Clojure-land.
