@@ -86,9 +86,11 @@ $ edn
 
 Copyright © 2018 Benjamin R. Haskell
 
-Distributed under the MIT License[¹][¹] (included in file: [LICENSE](LICENSE)).
+Distributed under the MIT License¹ (included in file: [LICENSE](LICENSE)).
 
 ---
+
+¹: 90% sure this is fine w.r.t. the Eclipse Public License common in Clojure-land.
 
 [edn]: https://github.com/edn-format/edn
 [lumo]: https://github.com/anmonteiro/lumo
@@ -96,4 +98,3 @@ Distributed under the MIT License[¹][¹] (included in file: [LICENSE](LICENSE))
 [graalvm]: https://www.graalvm.org/
 [blog-post]: https://www.astrecipes.net/blog/2018/07/20/cmd-line-apps-with-clojure-and-graalvm/
 [attic]: https://github.com/benizi/edn/tree/dotfiles
-[¹]: 90% sure this is fine w.r.t. the Eclipse Public License common in Clojure-land.
