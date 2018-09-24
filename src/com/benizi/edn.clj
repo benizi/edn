@@ -6,9 +6,12 @@
 (defn -main
   "Loop over input reading EDN data, outputting JSON"
   [& args]
-  (loop []
-    (let [eof :com.benizi.edn/eof
-          o (edn/read {:eof eof} *in*)]
-      (when (not= o eof)
-        (println (json/encode o))
-        (recur)))))
+  (try
+    (loop []
+      (let [o (edn/read {:eof ::eof} *in*)]
+        (when (not= o ::eof)
+          (println (json/encode o))
+          (recur))))
+    (catch Exception e
+      (binding [*out* *err*]
+        (println (str "Error: " (.getMessage e)))))))
