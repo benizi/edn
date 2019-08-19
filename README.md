@@ -22,6 +22,40 @@ Clojure to a native binary.  So, I extracted the script from my dotfiles.
 
 (Dotfiles versions are still available in the [dotfiles branch][attic].)
 
+# UUID-handling
+
+Another thing I often need in generating JSON is UUIDs, but I hate shelling out
+to `uuidgen` all the time. So, I added the following custom conversions for
+`#uuid`-tagged edn literals:
+
+- `#uuid value` where `value` is a keyword, number, or symbol, generates a
+  random UUID on each run of the program, but if you use the same keyword
+  twice, you'll get the same value.
+
+  E.g., each of the following outputs a JSON array of two identical UUIDs:
+
+    [#uuid :a #uuid :a]
+    [#uuid a #uuid a]
+    [#uuid 1 #uuid 1]
+
+  Keywords and symbols are cached separately, so this results in a JSON Array
+  of two distinct UUIDs:
+
+    [#uuid :a #uuid a]
+
+- `#uuid nil` generates a random UUID every time
+
+    [#uuid nil #uuid nil] -> JSON Array of two distinct UUIDs
+
+- `#uuid [value]` or `#uuid [value nybble-length]` allows specifying the hex
+  value as a number. `nybble-length` is optional, and defaults to 32. If it's
+  less than 32, the hex representation is repeated to fill 32 nybbles,
+  right-aligned (i.e., trimmed from the left).
+
+    #uuid [1]   -> #uuid "00000000-0000-0000-0000-000000000001"
+    #uuid [1 4] -> #uuid "00010001-0001-0001-0001-000100010001"
+    #uuid [1 3] -> #uuid "01001001-0010-0100-1001-001001001001"
+
 # Usage
 
 ## With Boot
@@ -81,10 +115,11 @@ $ edn
 
 - [x] Reads edn forms from stdin, outputs JSON to stdout
 - [x] Can compile to native binary using GraalVM
+- [x] Use a custom reader for `#uuid`-tagged values
 
 # License
 
-Copyright © 2018 Benjamin R. Haskell
+Copyright © 2018-2019 Benjamin R. Haskell
 
 Distributed under the MIT License¹ (included in file: [LICENSE](LICENSE)).
 
