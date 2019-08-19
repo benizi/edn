@@ -69,6 +69,16 @@
     (uberjar)
     (native :outfile outfile)))
 
+#_(;; TODO
+(require '[boot.task.built-in :as original])
+(ns-unmap 'boot.user 'install)
+(deftask install
+  []
+  (with-post-wrap fileset
+    (io
+      )))
+)
+
 (defn -main [& args]
   (require main-ns)
   (let [main (->> [main-ns '-main]
