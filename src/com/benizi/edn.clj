@@ -45,7 +45,7 @@
 
   - keyword, number, or symbol:
     - if not yet seen, generate a random UUID
-    - if seen previosly, return the previously-generated UUID
+    - if seen previously, return the previously-generated UUID
   - vector `[value]` 'literal' UUID
     - same as `[value 32]`
   - vector `[value hex-length]`
