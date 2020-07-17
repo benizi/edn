@@ -15,6 +15,7 @@
         (keyword? v) :cache
         (number? v) :cache
         (symbol? v) :cache
+        (== v []) :generate
         (vector? v) :literal
         :else :generate))
 
@@ -46,6 +47,8 @@
   - keyword, number, or symbol:
     - if not yet seen, generate a random UUID
     - if seen previously, return the previously-generated UUID
+  - vector `[]`
+    - always generate
   - vector `[value]` 'literal' UUID
     - same as `[value 32]`
   - vector `[value hex-length]`
@@ -80,6 +83,9 @@
 
   com.benizi.edn=> (r \"#uuid [1 3]\")
   #uuid \"01001001-0010-0100-1001-001001001001\"
+
+  com.benizi.edn=> (r \"#uuid[]\")
+  #uuid \"fe9871f6-5e39-47b6-9975-71ff6895d0f7\"
   ```
   "
   [in]
